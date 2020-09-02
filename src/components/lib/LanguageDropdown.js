@@ -8,7 +8,12 @@ import Dropdown from "./Dropdown"
 import { CustomLocaleLink as Link } from "../LocaleLink"
 
 const LanguageDropdownTemplate = ({ languages = [], selectedLanguage }) => {
-  const location = useLocation()
+  /* eslint-disable no-redeclare */
+  try {
+    var location = useLocation()
+  } catch (error) {
+    var location = window.location
+  }
 
   // strip prefix build name from url if present
   const pathname =
